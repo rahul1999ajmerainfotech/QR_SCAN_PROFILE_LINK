@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Scan The QR to link the scan to the profile.</h1>
+    <img src="@ViewBag.QRCodeImage" alt="QR Code" />
+    <ul>
+        <li style="list-style-type:none;">
+            <h5>The Following string is encoded in the QR Code, Click the button to simulate Scanning the QR Code </h5>
+        </li>
+        <li style="list-style-type:none;">
+            <strong>
+                <h4>@ViewBag.ScanFileName</h4>
+            </strong>
+        </li>
+    </ul>
+    <form asp-action="MapScanToProfile" asp-route-scanFileName=@ViewBag.ScanFileName method="post">
+        <button class="btn btn-primary" type="submit">Map Scan to Profile</button>
+    </form>
+</div>
